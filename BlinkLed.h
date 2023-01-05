@@ -5,34 +5,12 @@
 
 class BlinkLed : public BaseLed {
   private:
-    void switchLed() {
-      _state = _state ? LOW : HIGH;
-      digitalWrite(_pin, _state);
-    }
-  
+    void switchLed();
+
   public:
-    BlinkLed(uint8_t pin) {
-      _state = 0;
-      _pin = pin;
-      _interval = 1000;
-      pinMode(_pin, OUTPUT);
-    }
-
-    BlinkLed(uint8_t pin, long interval) {
-      _state = 0;
-      _pin = pin;
-      _interval = interval;
-      pinMode(_pin, OUTPUT);
-    }
-
-    void update() {
-      unsigned long currentMillis = millis();
-      
-      if ((unsigned long)(currentMillis - _previousMillis) >= _interval) {
-        switchLed();
-        _previousMillis = currentMillis;
-      }
-    }
+    BlinkLed(uint8_t pin);
+    BlinkLed(uint8_t pin, long interval);
+    void update();
 };
 
 #endif
