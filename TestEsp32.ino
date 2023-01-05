@@ -10,7 +10,7 @@ static const int oneWireBus = 33;
 SSD1306Wire  display(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED); // addr , freq , i2c group , resolution , rst
 
 BlinkLed blinkLed(EXTERNAL_LED, 2000);
-FadeLed fadeLed(LED, 2000);
+FadeLed fadeLed(LED, 1000);
 Temperature temperature(5000, oneWireBus);
 
 void setup() {

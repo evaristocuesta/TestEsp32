@@ -23,6 +23,7 @@ class Temperature {
 
     void setup() {
       _sensors.begin();
+      _temperature = temperature();
     }
     
     void update() {
