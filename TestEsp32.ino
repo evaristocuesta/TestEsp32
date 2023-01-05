@@ -12,16 +12,18 @@ FadeLed fadeLed(LED, 1000);
 Temperature temperature(5000, TEMP_PIN);
 Display display(5000);
 
-void setup() {
-  Serial.begin(115200);
-  Serial.println("This is the setup");
-  display.setup();
-  temperature.setup();
+void setup() 
+{
+    Serial.begin(115200);
+    Serial.println("This is the setup");
+    display.setup();
+    temperature.setup();
 }
 
-void loop() {
-  blinkLed.update();
-  fadeLed.update();
-  temperature.update();
-  display.update(temperature.getTemperature());
+void loop() 
+{
+    blinkLed.update();
+    fadeLed.update();
+    temperature.update();
+    display.update(temperature.getTemperature());
 }

@@ -1,6 +1,7 @@
 #include "Display.h"
 
-void Display::show(float temperature) {
+void Display::show(float temperature) 
+{
     _display.clear();
     _display.drawString(64, 4, "Temperature");
     String tempString = String(temperature);
@@ -8,11 +9,13 @@ void Display::show(float temperature) {
     _display.display();
 }       
 
-Display::Display(int interval) {
+Display::Display(int interval) 
+{
     _interval = interval;
 }
 
-void Display::setup() {
+void Display::setup() 
+{
     pinMode(Vext,OUTPUT);
     digitalWrite(Vext, LOW);
     _display.init();
@@ -22,7 +25,8 @@ void Display::setup() {
     _previousMillis = millis() + _interval;
 }
 
-void Display::update(float temperature) {
+void Display::update(float temperature) 
+{
     unsigned long currentMillis = millis();
 
     if ((unsigned long)(currentMillis - _previousMillis) >= _interval) {
