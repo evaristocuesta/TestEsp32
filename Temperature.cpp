@@ -1,10 +1,9 @@
 #include "Temperature.h"
 
-float Temperature::temperature() 
+void Temperature::temperature() 
 {
     _sensors.requestTemperaturesByIndex(0);
-    float temperatureC = _sensors.getTempCByIndex(0);
-    return temperatureC;
+    _temperature = _sensors.getTempCByIndex(0);
 }
 
 Temperature::Temperature(unsigned long interval, int pin) 
@@ -17,18 +16,14 @@ Temperature::Temperature(unsigned long interval, int pin)
 void Temperature::setup() 
 {
     _sensors.begin();
-    _temperature = temperature();
+    temperature();
+    _asyncTask = AsyncTask(_interval, true, [&]() { this->temperature(); });    
+    _asyncTask.Start();
 }
 
 void Temperature::update() 
 {
-    unsigned long currentMillis = millis();
-
-    if ((unsigned long)(currentMillis - _previousMillis) >= _interval) 
-    {
-        _temperature = temperature();
-        _previousMillis = currentMillis;
-    }
+    _asyncTask.Update();
 }
 
 float Temperature::getTemperature() 
