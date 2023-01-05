@@ -4,12 +4,12 @@
 #include "Temperature.h"
 #include "Display.h"
 
-static const uint8_t EXTERNAL_LED = 26;
-static const int oneWireBus = 33;
+static const uint8_t EXTERNAL_LED_PIN = 26;
+static const int TEMP_PIN = 33;
 
-BlinkLed blinkLed(EXTERNAL_LED, 2000);
+BlinkLed blinkLed(EXTERNAL_LED_PIN, 2000);
 FadeLed fadeLed(LED, 1000);
-Temperature temperature(5000, oneWireBus);
+Temperature temperature(5000, TEMP_PIN);
 Display display(5000);
 
 void setup() {

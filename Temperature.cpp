@@ -7,10 +7,10 @@ float Temperature::temperature()
     return temperatureC;
 }
 
-Temperature::Temperature(unsigned long interval, int oneWireBus) 
+Temperature::Temperature(unsigned long interval, int pin) 
 {
     _interval = interval;
-    _oneWire = OneWire(oneWireBus);
+    _oneWire = OneWire(pin);
     _sensors = DallasTemperature(&_oneWire);
 }
 

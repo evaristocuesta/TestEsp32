@@ -14,7 +14,7 @@ class Temperature {
     float temperature();
 
   public: 
-    Temperature(unsigned long interval, int oneWireBus);
+    Temperature(unsigned long interval, int pin);
     void setup();
     void update();
     float getTemperature();
