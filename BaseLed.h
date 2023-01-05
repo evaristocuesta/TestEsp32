@@ -1,35 +1,24 @@
 #ifndef BASE_LED_H
 #define BASE_LED_H
 
-class BaseLed {
-  protected:
-    uint8_t _pin;
-    long _interval;
-    uint8_t _state;
-    unsigned long _previousMillis;
+#include "Arduino.h"
 
-  public:
-    virtual void update();
-    
-    uint8_t getPin() {
-      return _pin;
-    }
+class BaseLed 
+{
+  
+    protected:
+        uint8_t _pin;
+        long _interval;
+        uint8_t _state;
+        unsigned long _previousMillis;
 
-    long getInterval() {
-      return _interval;
-    }
-
-    void setInterval(long value) {
-      _interval = value;
-    }
-
-    uint8_t getState() {
-      return _state;
-    }
-
-    void setState(uint8_t value) {
-      _state = value;
-    }
+    public:
+      virtual void update();
+      uint8_t getPin();
+      unsigned long getInterval();
+      void setInterval(unsigned long value);
+      uint8_t getState();
+      void setState(uint8_t value);
 };
 
 #endif
