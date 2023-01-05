@@ -1,3 +1,8 @@
+#ifndef FADED_LED_H
+#define FADED_LED_H
+
+#include "BaseLed.h"
+
 class FadeLed : public BaseLed {
   private:
     bool _fadeIn;
@@ -17,14 +22,6 @@ class FadeLed : public BaseLed {
       if (_littleTimeFadedLed > 40) {
         _state = _fadeIn ? _step * _timeFadedLed : 255 - _step * _timeFadedLed;
         analogWrite(_pin, _state);
-
-        // Serial.print("Fade Led State: ");
-        // Serial.print(_state);
-        // Serial.print(" - Step: ");
-        // Serial.print(_step);
-        // Serial.print(" - littleTimeFadedLed: ");
-        // Serial.println(_littleTimeFadedLed);
-        
         _littleTimeFadedLed = 0;
       }
     }
@@ -60,3 +57,5 @@ class FadeLed : public BaseLed {
       _previousMillis = currentMillis;
     }
 };
+
+#endif

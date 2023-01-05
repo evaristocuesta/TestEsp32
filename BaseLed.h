@@ -1,3 +1,6 @@
+#ifndef BASE_LED_H
+#define BASE_LED_H
+
 class BaseLed {
   protected:
     uint8_t _pin;
@@ -28,3 +31,5 @@ class BaseLed {
       _state = value;
     }
 };
+
+#endif

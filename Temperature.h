@@ -1,3 +1,6 @@
+#ifndef TEMPERATURE_H
+#define TEMPERATURE_H
+
 #include <DallasTemperature.h>
 
 class Temperature {
@@ -39,3 +42,5 @@ class Temperature {
       return _temperature;
     }
 };
+
+#endif

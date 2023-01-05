@@ -1,3 +1,6 @@
+#ifndef BLINK_LED_H
+#define BLINK_LED_H
+
 #include "BaseLed.h"
 
 class BlinkLed : public BaseLed {
@@ -26,12 +29,10 @@ class BlinkLed : public BaseLed {
       unsigned long currentMillis = millis();
       
       if ((unsigned long)(currentMillis - _previousMillis) >= _interval) {
-        // Serial.print("Blink Led");
-        // Serial.print(currentMillis - previousMillis);
-        // Serial.print(" - ");
-        // Serial.println(_interval);
         switchLed();
         _previousMillis = currentMillis;
       }
     }
 };
+
+#endif
